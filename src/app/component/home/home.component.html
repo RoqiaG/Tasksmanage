@@ -1,0 +1,28 @@
+<div class="container">
+    <blockquote class="blockquote text-center">
+     <p>***Task Managment***</p>
+    </blockquote>
+
+ <div *ngIf="taskservice.tasks.length == 0">
+    <p class="alert alert-danger">
+        no tasks for today
+    </p>
+ </div>
+ <div *ngIf="taskservice.tasks.length!=0">
+   <ul class="list-group">
+     <li class="list-group-item" *ngFor="let task of taskservice.tasks; index as i ">
+        <a [routerLink]="['/task',i]" >
+            {{task.title}} 
+        </a> 
+        <div>
+            <input type="checkbox" (change)="toggleLabel(i)" [(ngModel)]="task.completed">
+            <label class="text-center">{{ task.completed ? 'Completed' : 'Pending' }}</label>
+           </div>
+        <button class="del-button btn btn-danger" (click)="deleteTask(i)">Delete</button>
+        </li>
+    </ul>
+  </div>
+  <div>
+    <a routerLink="/add-task" class="form-control add-task-button btn btn-secondary">Add Task</a>
+</div>
+</div>

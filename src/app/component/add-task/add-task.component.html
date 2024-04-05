@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 class="text-center">Add New Task</h2>
+    <div class="form-group">
+        <label for="TaskTitle">Task Title</label>
+        <input #TaskTitle id="TaskTitle" type="text" class="form-control" placeholder="Enter task title" required>
+        <div class="invalid-feedback">Please enter a task title.</div>
+    </div>
+    <div class="form-group">
+        <label for="TaskDescription">Task Description</label>
+        <textarea #TaskDescription id="TaskDescription" class="form-control" placeholder="Enter task description" required></textarea>
+        <div class="invalid-feedback">Please enter a task description.</div>
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date</label>
+        <input #DueDate id="DueDate" type="date" class="form-control" required>
+        <div class="invalid-feedback">Please select a due date.</div>
+    </div>
+    <div class="form-group">
+        <label for="TaskStatus">Task Status>>></label>
+        <input type="checkbox" id="TaskStatus" #TaskStatus (change)="toggleLabel()">
+        <label for="TaskStatus">
+            <span *ngIf="TaskStatus.checked"> Completed</span>
+            <span *ngIf="!TaskStatus.checked"> Pending</span>       
+        </label>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" (click)="saveTask(TaskTitle, TaskDescription, DueDate, TaskStatus)">Save</button>
+        <a class="btn btn-primary" routerLink="/">Cancel</a>
+    </div>
+</div>

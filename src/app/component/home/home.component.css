@@ -1,0 +1,16 @@
+.del-button{
+    float: right;
+}
+.add-task-button{
+     margin-bottom: 10px;
+     margin-top: 10px;
+}
+
+li:nth-child(odd){
+background-color: #FFFFFF;
+border-left: 6px solid red;
+} li:nth-child(even){
+    background-color: #F2F2F2;
+    border-left: 6px solid rgb(96, 96, 247);
+}
+
